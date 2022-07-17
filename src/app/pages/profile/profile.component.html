@@ -1,0 +1,51 @@
+<mat-card *ngIf="user">
+  <h1>Your Profile Details</h1> 
+<!-- {{user | json}} -->
+  <mat-card-content>
+
+    <div class="bootstrap-wrapper">
+        <div class="container text-center">
+            <div class="container ">
+                <img src="https://www.freeiconspng.com/thumbs/account-icon/account-icon-8.png" alt="" class="profileImage">
+                <h1 class="mt20">{{user.firstName}} {{user.lastName}}</h1>
+            </div>
+            <div class="row">
+                <div class="col-md-10 offset-md-1">
+                    <!-- table details -->
+                    <table class="table text-center">
+                        <tr>
+                            <td>Username</td>
+                            <td>{{user.username}}</td>
+                        </tr>
+                        <tr>
+                            <td>UserId</td>
+                            <td>Exam{{user.id}}</td>
+                        </tr>
+                        <tr>
+                            <td>Email</td>
+                            <td>{{user.email}}</td>
+                        </tr>
+                        <tr *ngIf="user.phone">
+                            <td>Mobile</td>
+                            <td>{{user.phone}}</td>
+                        </tr>
+                        <tr>
+                            <td>Role</td>
+                            <td>{{user.authorities[0].authority}}</td>
+                        </tr>
+                        <tr>
+                            <td>Status</td>
+                            <td>{{user.enabled?"ACTIVE":"NoActive"}}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  </mat-card-content>
+  <mat-card-actions class="text-center">
+      <button mat-rasied-button color="accent">Update</button>
+      <button mat-rasied-button color="red">Share</button>
+  </mat-card-actions> 
+</mat-card>
